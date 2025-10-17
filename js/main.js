@@ -21,7 +21,8 @@ function setQueryParams(params) {
 }
 
 function main() {
-  const spinBtn = document.getElementById("spin-button");
+  const spinButton = document.getElementById("spin-button");
+  const shareButton = document.getElementById("share-button");
   const container = document.getElementById("wheel-container");
   const defaultItems = [
     "Apple",
@@ -33,14 +34,25 @@ function main() {
     "Grape",
   ];
   const items = parseQueryParams()?.items?.split(",") || defaultItems;
-  spinBtn.value = items.join(",");
-  console.log(`spinBtn.value is ${spinBtn.value}`);
+  spinButton.value = items.join(",");
+  console.log(`spinBtn.value is ${spinButton.value}`);
   const wheel = new SpinningWheel(items, container);
   wheel.spin();
 
-  spinBtn.onclick = function () {
+  spinButton.onclick = function () {
     const input = document.getElementById("item-input").value.trim();
-    setQueryParams({ items: input });
+    setQueryParams({ items: input.replaceAll("\n", ",") });
+  };
+
+  shareButton.onclick = async function () {
+    const currentPageUrl = globalThis.location.href;
+    try {
+      await navigator.clipboard.writeText(currentPageUrl);
+      alert("URL copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+      alert("Failed to copy URL. Please try manually.");
+    }
   };
 }
 

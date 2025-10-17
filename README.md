@@ -6,8 +6,8 @@ Website - <https://kishaningithub.github.io/simple-picker-wheel/>
 
 ## Features
 
-- [ ] Create picker wheel
-- [ ] Share picker wheel (no login or account required)
+- [x] Create picker wheel
+- [x] Share picker wheel (no login or account required)
 - [ ] Support multiple themes
 
 ## Running it locally

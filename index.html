@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="light dark">
         <title>Simple Picker Wheel</title>
-         <script type="module" src="./js/main.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <script type="module" src="./js/main.js"></script>
     </head>
     <body>
-        <div id="wheel-container"></div>
-        <textarea id="item-input" rows="10" cols="10" placeholder="Add items separated by commas"></textarea>
-        <button id="spin-button">Spin</button>
+        <main class="grid">
+          <section id="wheel-container"></section>
+          <section>
+             <textarea id="item-input" rows="10" cols="10" placeholder="Add items separated by new lines"></textarea>
+             <button id="spin-button">Spin</button>
+             <button id="share-button">Share</button>
+          </section>
+        </main>
     </body>
 </html>
