@@ -2,6 +2,8 @@
 
 Simple picker wheel without all the login/account creation fuzz for all your picker needs
 
+Website - <https://kishaningithub.github.io/simple-picker-wheel/>
+
 ## Features
 
 - [ ] Create picker wheel
