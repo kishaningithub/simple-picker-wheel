@@ -24,6 +24,8 @@ function main() {
   const spinButton = document.getElementById("spin-button");
   const shareButton = document.getElementById("share-button");
   const container = document.getElementById("wheel-container");
+  const itemInput = document.getElementById("item-input");
+
   const defaultItems = [
     "Apple",
     "Banana",
@@ -34,13 +36,12 @@ function main() {
     "Grape",
   ];
   const items = parseQueryParams()?.items?.split(",") || defaultItems;
-  spinButton.value = items.join(",");
-  console.log(`spinBtn.value is ${spinButton.value}`);
+  itemInput.value = items.join("\n");
   const wheel = new SpinningWheel(items, container);
   wheel.spin();
 
   spinButton.onclick = function () {
-    const input = document.getElementById("item-input").value.trim();
+    const input = itemInput.value.trim();
     setQueryParams({ items: input.replaceAll("\n", ",") });
   };
 
