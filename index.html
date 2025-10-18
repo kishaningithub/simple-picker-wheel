@@ -9,13 +9,21 @@
         <script type="module" src="./js/main.js"></script>
     </head>
     <body>
-        <main class="grid">
-          <section id="wheel-container"></section>
+        <main>
           <section>
-             <textarea id="item-input" rows="10" cols="10" placeholder="Add items separated by new lines"></textarea>
-             <button id="spin-button">Spin</button>
-             <button id="share-button">Share</button>
+            <button id="edit-button">Edit</button>
+            <button id="share-button">Share</button>
+            <div id="wheel-container"></div>
+            <button id="spin-button">Spin</button>
           </section>
         </main>
+        <dialog id="edit-items-dialog">
+            <form method="get" action="/">
+                <label>Edit Items
+                    <textarea id="item-input" name="items" rows="10" cols="10" placeholder="Add items separated by new lines" required></textarea>
+                </label>
+                <button type="submit">Save</button>
+            </form>
+          </dialog>
     </body>
 </html>

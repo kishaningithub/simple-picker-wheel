@@ -22,9 +22,11 @@ function setQueryParams(params) {
 
 function main() {
   const spinButton = document.getElementById("spin-button");
+  const editButton = document.getElementById("edit-button");
   const shareButton = document.getElementById("share-button");
   const container = document.getElementById("wheel-container");
   const itemInput = document.getElementById("item-input");
+  const editItemsDialog = document.getElementById("edit-items-dialog");
 
   const defaultItems = [
     "Apple",
@@ -35,14 +37,16 @@ function main() {
     "Fig",
     "Grape",
   ];
-  const items = parseQueryParams()?.items?.split(",") || defaultItems;
+  const items = parseQueryParams()?.items?.split("\n") || defaultItems;
   itemInput.value = items.join("\n");
   const wheel = new SpinningWheel(items, container);
-  wheel.spin();
+
+  editButton.onclick = function () { 
+    editItemsDialog.showModal();
+  };
 
   spinButton.onclick = function () {
-    const input = itemInput.value.trim();
-    setQueryParams({ items: input.replaceAll("\n", ",") });
+    wheel.spin();
   };
 
   shareButton.onclick = async function () {
