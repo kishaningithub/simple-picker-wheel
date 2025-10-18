@@ -32,7 +32,7 @@ function main() {
     "Apple",
     "Banana",
     "Cherry",
-    "Date",
+    "Dates",
     "Elderberry",
     "Fig",
     "Grape",

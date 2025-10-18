@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="color-scheme" content="light dark">
-        <title>Simple Picker Wheel</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-        <script type="module" src="./js/main.js"></script>
-    </head>
-    <body>
-        <main>
-          <section>
-            <button id="edit-button">Edit</button>
-            <button id="share-button">Share</button>
-            <div id="wheel-container"></div>
-            <button id="spin-button">Spin</button>
-          </section>
-        </main>
-        <dialog id="edit-items-dialog">
-            <form method="get" action="/">
-                <label>Edit Items
-                    <textarea id="item-input" name="items" rows="10" cols="10" placeholder="Add items separated by new lines" required></textarea>
-                </label>
-                <button type="submit">Save</button>
-            </form>
-          </dialog>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Simple Picker Wheel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body class="container">
+    <header>
+      <nav>
+        <ul>
+          <li><h2>Simple picker wheel</h2></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <button id="edit-button">Edit</button>
+        <button id="share-button">Share</button>
+        <div>
+          <div id="wheel-container"></div>
+          <button id="spin-button">Spin</button>
+        </div>
+      </section>
+    </main>
+    <dialog id="edit-items-dialog">
+      <form method="get" action="/">
+        <label
+          >Edit Items
+          <textarea
+            id="item-input"
+            name="items"
+            rows="10"
+            cols="10"
+            placeholder="Add items separated by new lines"
+            required
+          ></textarea>
+        </label>
+        <button type="submit">Save</button>
+      </form>
+    </dialog>
+  </body>
 </html>

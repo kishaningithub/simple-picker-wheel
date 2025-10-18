@@ -8,9 +8,10 @@ export class SpinningWheel {
 
   createWheel(items, containerComponent) {
     const colors = ["#2b590c", "#afa939", "#f7b71d", "#fdef96"];
+
     const props = {
       itemBackgroundColors: colors,
-      items: items.map((item, index) => ({
+      items: items.map((item) => ({
         label: item.trim(),
       })),
     };
