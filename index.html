@@ -23,12 +23,24 @@
       <section>
         <button id="edit-button">Edit</button>
         <button id="share-button">Share</button>
-        <div>
+        <div style="position: relative">
           <div id="wheel-container"></div>
-          <button id="spin-button">Spin</button>
+          <div
+            id="spin-button"
+            style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%) rotate(25deg);
+              cursor: pointer;
+            "
+          >
+            <img src="./images/trumpy_guy.png" style="width: 8em" alt="Spin" />
+          </div>
         </div>
       </section>
     </main>
+    <audio id="spin-sound" preload="auto"></audio>
     <dialog id="edit-items-dialog">
       <form method="get" action="/">
         <label
@@ -42,6 +54,13 @@
             required
           ></textarea>
         </label>
+        <label>
+          Select Theme
+          <select id="theme-select" name="theme" aria-label="Select your theme.." required>
+            <option selected value="default">Default</option>
+            <option value="trump">Trump</option>
+          </select>
+        </label>
         <button type="submit">Save</button>
       </form>
     </dialog>
@@ -51,7 +70,7 @@
           <header>
             <h3>Winner is</h3>
           </header>
-          <p id="winner-text" style="text-align: center;"></p>
+          <p id="winner-text" style="text-align: center"></p>
           <footer>
             <button>Close</button>
           </footer>

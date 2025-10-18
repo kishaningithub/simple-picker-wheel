@@ -2,19 +2,23 @@ import { Wheel } from "https://cdn.jsdelivr.net/npm/spin-wheel@5.0.2/dist/spin-w
 import { random } from "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm";
 
 export class SpinningWheel {
-  constructor(items, containerComponent) {
-    this.wheel = this.createWheel(items, containerComponent);
+  constructor(items, containerComponent, colors) {
+    this.wheel = this.createWheel(items, containerComponent, colors);
     this.onRest = null;
     this.wheel.onRest = (event) => {
       if (this.onRest) {
         this.onRest(event);
       }
     };
+    this.onSpin = null;
+    this.wheel.onSpin = (event) => {
+       if (this.onSpin) {
+        this.onSpin(event);
+      }
+    };
   }
 
-  createWheel(items, containerComponent) {
-    const colors = ["#2b590c", "#afa939", "#f7b71d", "#fdef96"];
-
+  createWheel(items, containerComponent, colors) {
     const props = {
       itemBackgroundColors: colors,
       items: items.map((item) => ({
@@ -26,6 +30,6 @@ export class SpinningWheel {
 
   spin() {
     const winningItemIndex = random(0, this.wheel.items.length);
-    this.wheel.spinToItem(winningItemIndex, 4000, true, 2, 1, null);
+    this.wheel.spinToItem(winningItemIndex, 10000, true, 2, 1, null);
   }
 }
