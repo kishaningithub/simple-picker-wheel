@@ -4,6 +4,12 @@ import { random } from "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm";
 export class SpinningWheel {
   constructor(items, containerComponent) {
     this.wheel = this.createWheel(items, containerComponent);
+    this.onRest = null;
+    this.wheel.onRest = (event) => {
+      if (this.onRest) {
+        this.onRest(event);
+      }
+    };
   }
 
   createWheel(items, containerComponent) {

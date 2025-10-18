@@ -37,12 +37,25 @@
             id="item-input"
             name="items"
             rows="10"
-            cols="10"
+            cols="20"
             placeholder="Add items separated by new lines"
             required
           ></textarea>
         </label>
         <button type="submit">Save</button>
+      </form>
+    </dialog>
+    <dialog id="winner-dialog">
+      <form method="dialog">
+        <article>
+          <header>
+            <h3>Winner is</h3>
+          </header>
+          <p id="winner-text" style="text-align: center;"></p>
+          <footer>
+            <button>Close</button>
+          </footer>
+        </article>
       </form>
     </dialog>
   </body>
