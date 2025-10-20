@@ -18,6 +18,7 @@ const themes = {
   default: {
     pickerColors: ["#2b590c", "#afa939", "#f7b71d", "#fdef96"],
     spinSound: null,
+    spinButtonImage: "./images/default.png",
     confetties: [
       {
         particleCount: 2,
@@ -40,6 +41,7 @@ const themes = {
   trump: {
     pickerColors: ["#cf1c3a", "#ffffff", "#203668"],
     spinSound: "./sounds/young_man.mp3",
+    spinButtonImage: "./images/trumpy_guy.png",
     confetties: [
       {
         particleCount: 2,
@@ -63,6 +65,7 @@ const themes = {
 
 function main() {
   const spinButton = document.getElementById("spin-button");
+  const spinButtonImage = document.getElementById("spin-button-image");
   const editButton = document.getElementById("edit-button");
   const shareButton = document.getElementById("share-button");
   const container = document.getElementById("wheel-container");
@@ -86,6 +89,7 @@ function main() {
   const themeName = queryParams.get("theme") || "default";
   themeSelect.value = themeName;
   const selectedTheme = themes[themeName];
+  spinButtonImage.src = selectedTheme.spinButtonImage;
   const wheel = new SpinningWheel(items, container, selectedTheme.pickerColors);
   if (selectedTheme.spinSound) {
     spinSound.src = selectedTheme.spinSound;
