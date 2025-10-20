@@ -11,7 +11,7 @@
     />
     <script type="module" src="./js/main.js"></script>
   </head>
-  <body class="container">
+  <body class="container-fluid">
     <header>
       <nav>
         <ul>
@@ -21,8 +21,10 @@
     </header>
     <main>
       <section>
+        <div style="text-align: right;">
         <button id="edit-button">Edit</button>
         <button id="share-button">Share</button>
+        </div>
         <div style="position: relative">
           <div id="wheel-container"></div>
           <div
@@ -42,26 +44,35 @@
     </main>
     <audio id="spin-sound" preload="auto"></audio>
     <dialog id="edit-items-dialog">
-      <form method="get" action="/">
-        <label
-          >Edit Items
-          <textarea
-            id="item-input"
-            name="items"
-            rows="10"
-            cols="20"
-            placeholder="Add items separated by new lines"
-            required
-          ></textarea>
-        </label>
-        <label>
-          Select Theme
-          <select id="theme-select" name="theme" aria-label="Select your theme.." required>
-            <option selected value="default">Default</option>
-            <option value="trump">Trump</option>
-          </select>
-        </label>
-        <button type="submit">Save</button>
+      <form method="get">
+        <article>
+          <label
+            >Edit Items
+            <textarea
+              id="item-input"
+              name="items"
+              rows="10"
+              cols="20"
+              placeholder="Add items separated by new lines"
+              required
+            ></textarea>
+          </label>
+          <label>
+            Select Theme
+            <select
+              id="theme-select"
+              name="theme"
+              aria-label="Select your theme.."
+              required
+            >
+              <option selected value="default">Default</option>
+              <option value="trump">Trump</option>
+            </select>
+          </label>
+          <footer>
+            <button type="submit">Save</button>
+          </footer>
+        </article>
       </form>
     </dialog>
     <dialog id="winner-dialog">

@@ -2,27 +2,14 @@ import { SpinningWheel } from "./spinning-wheel.js";
 import confetti from "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/+esm";
 import { DateTime } from "https://cdn.jsdelivr.net/npm/luxon@3.7.2/+esm";
 
-function showConfetti(endTime) {
-  let colors = ["#bb0000", "#ffffff"];
-  confetti({
-    particleCount: 2,
-    angle: 60,
-    spread: 55,
-    origin: { x: 0 },
-    colors: colors,
-    zIndex: Math.max(),
-  });
-  confetti({
-    particleCount: 2,
-    angle: 120,
-    spread: 55,
-    origin: { x: 1 },
-    colors: colors,
-    zIndex: Math.max(),
+function showConfetti(endTime, theme) {
+  const confetties = theme.confetties || [];
+  confetties.forEach((confettiConfig) => {
+    confetti(confettiConfig);
   });
   if (DateTime.now() < endTime) {
     requestAnimationFrame(() => {
-      showConfetti(endTime);
+      showConfetti(endTime, theme);
     });
   }
 }
@@ -31,10 +18,86 @@ const themes = {
   default: {
     pickerColors: ["#2b590c", "#afa939", "#f7b71d", "#fdef96"],
     spinSound: null,
+    confetties: [
+      {
+        particleCount: 2,
+        angle: 180 + 90,
+        spread: 180,
+        origin: { x: 0.2, y: 0 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+      {
+        particleCount: 2,
+        angle: 180 + 90,
+        spread: 180,
+        origin: { x: 0.8, y: 0 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+      {
+        particleCount: 2,
+        angle: 0,
+        spread: 180,
+        origin: { x: 0.0, y: 0.5 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+       {
+        particleCount: 2,
+        angle: 180,
+        spread: 180,
+        origin: { x: 1, y: 0.5 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+    ],
   },
   trump: {
     pickerColors: ["#cf1c3a", "#ffffff", "#203668"],
     spinSound: "./sounds/young_man.mp3",
+    confetties: [
+   {
+        particleCount: 2,
+        angle: 180 + 90,
+        spread: 180,
+        origin: { x: 0.2, y: 0 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+      {
+        particleCount: 2,
+        angle: 180 + 90,
+        spread: 180,
+        origin: { x: 0.8, y: 0 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+      {
+        particleCount: 2,
+        angle: 0,
+        spread: 180,
+        origin: { x: 0.0, y: 0.5 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+       {
+        particleCount: 2,
+        angle: 180,
+        spread: 180,
+        origin: { x: 1, y: 0.5 },
+        zIndex: Math.max(),
+        colors: ["#bb0000", "#ffffff"],
+        startVelocity: 100,
+      },
+    ],
   },
 };
 
@@ -62,10 +125,10 @@ function main() {
   itemInput.value = items.join("\n");
   const themeName = queryParams.get("theme") || "default";
   themeSelect.value = themeName;
-  const theme = themes[themeName];
-  const wheel = new SpinningWheel(items, container, theme.pickerColors);
-  if (theme.spinSound) {
-    spinSound.src = theme.spinSound;
+  const selectedTheme = themes[themeName];
+  const wheel = new SpinningWheel(items, container, selectedTheme.pickerColors);
+  if (selectedTheme.spinSound) {
+    spinSound.src = selectedTheme.spinSound;
   }
   wheel.onRest = (event) => {
     const item = event.currentIndex;
@@ -74,15 +137,15 @@ function main() {
     winnerText.textContent = items[item];
     winnerDialog.showModal();
     let endTime = DateTime.now().plus({ seconds: 5 });
-    showConfetti(endTime);
-    if (theme.spinSound) {
+    showConfetti(endTime, selectedTheme);
+    if (selectedTheme.spinSound) {
       spinSound.pause();
       spinSound.currentTime = 0;
     }
   };
 
   wheel.onSpin = (event) => {
-    if (theme.spinSound) {
+    if (selectedTheme.spinSound) {
       spinSound.play();
     }
   };

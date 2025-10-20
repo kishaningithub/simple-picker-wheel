@@ -16,6 +16,12 @@ export class SpinningWheel {
         this.onSpin(event);
       }
     };
+    this.onCurrentIndexChange = null;
+    this.wheel.onCurrentIndexChange = (event) => {
+      if (this.onCurrentIndexChange) {
+        this.onCurrentIndexChange(event);
+      }
+    };
   }
 
   createWheel(items, containerComponent, colors) {
