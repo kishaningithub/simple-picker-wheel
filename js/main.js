@@ -23,7 +23,7 @@ const themes = {
         particleCount: 2,
         angle: 180 + 90,
         spread: 180,
-        origin: { x: 0.2, y: 0 },
+        origin: { x: 0.3, y: 0 },
         zIndex: Math.max(),
         colors: ["#bb0000", "#ffffff"],
         startVelocity: 100,
@@ -33,24 +33,6 @@ const themes = {
         angle: 180 + 90,
         spread: 180,
         origin: { x: 0.8, y: 0 },
-        zIndex: Math.max(),
-        colors: ["#bb0000", "#ffffff"],
-        startVelocity: 100,
-      },
-      {
-        particleCount: 2,
-        angle: 0,
-        spread: 180,
-        origin: { x: 0.0, y: 0.5 },
-        zIndex: Math.max(),
-        colors: ["#bb0000", "#ffffff"],
-        startVelocity: 100,
-      },
-       {
-        particleCount: 2,
-        angle: 180,
-        spread: 180,
-        origin: { x: 1, y: 0.5 },
         zIndex: Math.max(),
         colors: ["#bb0000", "#ffffff"],
         startVelocity: 100,
@@ -61,7 +43,7 @@ const themes = {
     pickerColors: ["#cf1c3a", "#ffffff", "#203668"],
     spinSound: "./sounds/young_man.mp3",
     confetties: [
-   {
+      {
         particleCount: 2,
         angle: 180 + 90,
         spread: 180,
@@ -88,7 +70,7 @@ const themes = {
         colors: ["#bb0000", "#ffffff"],
         startVelocity: 100,
       },
-       {
+      {
         particleCount: 2,
         angle: 180,
         spread: 180,
