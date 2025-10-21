@@ -8,9 +8,9 @@ Website - <https://kishaningithub.github.io/simple-picker-wheel/>
 
 - [x] Create picker wheel
 - [x] Share picker wheel (no login or account required)
-- [ ] Support multiple themes
+- [x] Support multiple themes
 
 ## Running it locally
 
-- Run script "./start-local-server.sh"
+- Run script `./start-local-server.sh`
 - Open your browser and access <http://localhost:8000/>
