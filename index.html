@@ -21,9 +21,9 @@
     </header>
     <main>
       <section>
-        <div style="text-align: right;">
-        <button id="edit-button">Edit</button>
-        <button id="share-button">Share</button>
+        <div style="text-align: right">
+          <button id="edit-button">Edit</button>
+          <button id="share-button">Share</button>
         </div>
         <div style="position: relative">
           <div id="wheel-container"></div>
@@ -33,7 +33,7 @@
               position: absolute;
               top: 50%;
               left: 50%;
-              transform: translate(-50%, -50%) rotate(25deg);
+              transform: translate(-50%, -50%);
               cursor: pointer;
             "
           >
@@ -46,17 +46,6 @@
     <dialog id="edit-items-dialog">
       <form method="get">
         <article>
-          <label
-            >Edit Items
-            <textarea
-              id="item-input"
-              name="items"
-              rows="10"
-              cols="20"
-              placeholder="Add items separated by new lines"
-              required
-            ></textarea>
-          </label>
           <label>
             Select Theme
             <select
@@ -69,13 +58,27 @@
               <option value="trump">Trump</option>
             </select>
           </label>
+          <label
+            >Edit Items
+            <textarea
+              id="item-input"
+              name="items"
+              rows="10"
+              cols="20"
+              placeholder="Add items separated by new lines"
+              required
+            ></textarea>
+          </label>
           <footer>
             <button type="submit">Save</button>
           </footer>
         </article>
       </form>
     </dialog>
-    <dialog id="winner-dialog" style="backdrop-filter: none; background: transparent;">
+    <dialog
+      id="winner-dialog"
+      style="backdrop-filter: none; background: transparent"
+    >
       <form method="dialog">
         <article>
           <header>
