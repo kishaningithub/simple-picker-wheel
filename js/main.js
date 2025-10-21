@@ -73,6 +73,8 @@ function main() {
   const themeSelect = document.getElementById("theme-select");
   const editItemsDialog = document.getElementById("edit-items-dialog");
   const spinSound = document.getElementById("spin-sound");
+  const alertText = document.getElementById("alert-text");
+  const alertDialog = document.getElementById("alert-dialog");
 
   const defaultItems = [
     "Apple",
@@ -124,13 +126,9 @@ function main() {
 
   shareButton.onclick = async () => {
     const currentPageUrl = globalThis.location.href;
-    try {
-      await navigator.clipboard.writeText(currentPageUrl);
-      alert("URL copied to clipboard!");
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-      alert("Failed to copy URL. Please try manually.");
-    }
+    await navigator.clipboard.writeText(currentPageUrl);
+    alertText.innerText = "URL copied to clipboard!";
+    alertDialog.showModal();
   };
 }
 
